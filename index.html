@@ -25,7 +25,7 @@
         async
         src="https://tenor.com/embed.js"
       ></script>
-      <h1 id='output'>Do you love me? 😊</h1>
+      <h1 id='name'>Do you love me? 😊</h1>
       <p>~ शिवा is all yours.</p>
 
       <div class="btn">
@@ -33,5 +33,26 @@
         <a href="no1.html">No</a>
       </div>
     </div>
+   <script>
+          const urlParams = new URLSearchParams(window.location.search);
+          const nameFromURL = urlParams.get('name');
+          const quoteElement = document.getElementById('name');
+
+
+          let name;
+
+          if (nameFromURL) {
+             name = nameFromURL;
+             localStorage.setItem('userName', name);
+          } else {
+             name = localStorage.getItem('userName');
+  
+            if (!name) {
+                name = '';
+            }
+         }
+
+         quoteElement.textContent = `${name}!`;
+   </script>
   </body>
 </html>
