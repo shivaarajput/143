@@ -11,7 +11,7 @@
     <div class="container">
       <img class="tenor-gif-embed" src="https://c.tenor.com/p_VEcmrBsLMAAAAd/tenor.gif" alt="no-image">
       <h1 id='name'>Do you love me? 😊</h1>
-      <p>~ शिवा is all yours.</p>
+      <p id='me'> </p>
 
       <div class="btn">
         <a href="yes.html">Yes</a>
@@ -21,23 +21,32 @@
    <script>
           const urlParams = new URLSearchParams(window.location.search);
           const nameFromURL = urlParams.get('name');
+          const meFromURL = urlParams.get('me');
           const quoteElement = document.getElementById('name');
+          const meElement = document.getElementById('me');
 
 
           let name;
+          let me;
 
           if (nameFromURL) {
              name = nameFromURL;
+             me = meFromURL;
              localStorage.setItem('userName', name);
+             localStorage.setItem('me', me);
           } else {
              name = localStorage.getItem('userName');
+             me = localStorage.getItem('me');
   
             if (!name) {
                 name = '';
+                me = '~ Shiva';
             }
          }
 
          quoteElement.textContent += `${name}`;
+         meElement.textContent = `${me} is all yours.`;
+
    </script>
   </body>
 </html>
